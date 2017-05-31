@@ -16,13 +16,21 @@
           }
           $view .= "</table>";
 
-          $view .= "<select>";
-          foreach($res as $row) {
-          $view .= "<option>";
-          }
-          
-          $view .= "</select>";
+          // $view .= "<select>";
+          // foreach($res as $row) {
+          // $view .= "<option>";
+          // }
+          // $view .= "</select>";
           return($view);
+      }
+
+      public function selectBox($tables, $columnId, $columnName) {
+        $selectBox = "<select>";
+        foreach ($tables as $value) {
+          $selectBox .= '<option name="' .$value[$columnId]. '" value="">' .$value[$columnName]. '</option>';
+        }
+        $selectBox .= '</select>';
+        return $selectBox;
       }
   }
 

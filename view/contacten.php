@@ -1,6 +1,5 @@
 <?php
 include_once('header.php');
-echo $contacts;
-echo $box;
+echo $result;
 include_once('footer.php');
  ?>

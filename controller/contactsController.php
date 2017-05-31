@@ -33,18 +33,14 @@ class ContactsController {
   public function readAllData() {
     $orderby = isset($_GET['orderby'])?$_GET['orderby']:NULL;
     $contacts = $this->contactsService->readContacts($orderby);
-    include 'view/contacts.php';
+    $box = $this->contactsService->readSelectBox();
+    require_once 'view/contacts.php';
   }
-  // public function readData() {
-  //   $id = isset($_GET['id'])?$_GET['id']:NULL;
-  //   if ( !$id ) {
-  //     throw new Exception('Internal error.');
-  //   }
-  //   $contact = $this->contactsService->readContact($id);
-  //
-  //   include 'view/contact.php';
-  // }
-  //
 
+  public function readData() {
+    $id = isset($_GET['id'])?$_GET['id']:NULL;
+    $result = $this->contactsService->readContact($id);
+    require_once 'view/contacten.php';
+  }
 }
 ?>
